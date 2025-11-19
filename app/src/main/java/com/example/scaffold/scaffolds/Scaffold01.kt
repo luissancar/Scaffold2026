@@ -29,6 +29,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.modifier.modifierLocalConsumer
+import androidx.compose.ui.unit.dp
 
 @Composable
 fun Scaffold01() {
@@ -61,16 +62,20 @@ fun MyTopAppBar01(colorCambiado: (Color) -> Unit, pulsado: (String) -> Unit) {
             Icon(
                 imageVector = Icons.Default.Add,
                 contentDescription = "Add",
-                modifier = Modifier.clickable() {
-                    pulsado("Add")
-                    colorCambiado(Color.Red)
-                })
+                modifier = Modifier
+                    .clickable() {
+                        pulsado("Add")
+                        colorCambiado(Color.Red)
+                    }
+                    .padding(horizontal = 8.dp))
             Icon(
                 imageVector = Icons.Default.AccountBox, contentDescription = "Box",
-                modifier = Modifier.clickable() {
-                    pulsado("Box")
-                    colorCambiado(Color.Blue)
-                })
+                modifier = Modifier
+                    .clickable() {
+                        pulsado("Box")
+                        colorCambiado(Color.Blue)
+                    }
+                    .padding(horizontal = 8.dp))
         }
 
 
@@ -79,7 +84,9 @@ fun MyTopAppBar01(colorCambiado: (Color) -> Unit, pulsado: (String) -> Unit) {
 
 @Composable
 fun CuerpoApp(modifier: Modifier = Modifier, color: Color, texto: String) {
-    Column(modifier = modifier.background(color = color).fillMaxSize()) {
+    Column(modifier = modifier
+        .background(color = color)
+        .fillMaxSize()) {
         Text(text = texto)
     }
 }
