@@ -30,6 +30,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.unit.dp
+import com.example.scaffold.CuerpoApp
 
 @Composable
 fun Scaffold01() {
@@ -80,13 +81,4 @@ fun MyTopAppBar01(colorCambiado: (Color) -> Unit, pulsado: (String) -> Unit) {
 
 
     )
-}
-
-@Composable
-fun CuerpoApp(modifier: Modifier = Modifier, color: Color, texto: String) {
-    Column(modifier = modifier
-        .background(color = color)
-        .fillMaxSize()) {
-        Text(text = texto)
-    }
 }

@@ -12,6 +12,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.scaffold.scaffolds.Scaffold01
+import com.example.scaffold.scaffolds.Scaffold02
+import com.example.scaffold.scaffolds.Scaffold3
 import com.example.scaffold.ui.theme.ScaffoldTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,7 +22,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             ScaffoldTheme {
-                Scaffold01()
+                //Scaffold02()
+                Scaffold3()
             }
         }
     }
