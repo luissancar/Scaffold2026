@@ -51,9 +51,9 @@ fun Scaffold3() {
 fun BottomBar3(onImageChange: (String) -> Unit, onColorChange: (Color) -> Unit) {
     var index by rememberSaveable { mutableStateOf(1) }
     val imagenes = listOf(
-        "https://picsum.photos/406",
-        "https://picsum.photos/401",
-        "https://picsum.photos/402"
+        "https://i.ytimg.com/vi/1djGyCj1vCk/mqdefault.jpg",
+        "https://48hills.org/wp-content/uploads/2022/01/Murnau_Nosferatu_003-696x499.jpg",
+        "https://www.ruletarusa.mx/wp-content/uploads/2024/12/Nosferatu--1100x621.png"
     )
     NavigationBar() {
         NavigationBarItem(
