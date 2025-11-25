@@ -41,7 +41,12 @@ fun Scaffold01() {
         topBar = { MyTopAppBar01(colorCambiado = { color = it }) { texto = it } }
     )
     { innerPadding ->
-        CuerpoApp(modifier = Modifier.padding(innerPadding), texto = texto, color = color)
+        CuerpoApp(
+            modifier = Modifier.padding(innerPadding),
+            texto = texto,
+            color = color,
+            urlImage = ""
+        )
 
     }
 }

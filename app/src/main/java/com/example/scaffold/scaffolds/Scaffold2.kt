@@ -45,7 +45,8 @@ fun Scaffold02() {
         CuerpoApp(
             modifier = Modifier.padding(paddingValues = contentPadding),
             color = Color.Red,
-            texto = "TopAppBar2"
+            texto = "TopAppBar2",
+            urlImage = ""
         )
 
     }

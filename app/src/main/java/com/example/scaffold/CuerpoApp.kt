@@ -3,6 +3,7 @@ package com.example.scaffold
 import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
@@ -15,26 +16,39 @@ import coil.compose.AsyncImage
 
 
 @Composable
-fun CuerpoApp(modifier: Modifier = Modifier, color: Color, texto: String) {
+fun CuerpoApp(modifier: Modifier = Modifier, color: Color, texto: String, urlImage: String) {
     Column(
         modifier = modifier
             .background(color = color)
             .fillMaxSize()
     ) {
-        ImagenDesdeUrl("https://picsum.photos/400")
+        ImagenDesdeUrl(urlImage)
     }
 }
 
+
 @Composable
-fun ImagenDesdeUrl(imagenUrl: String) {
-    Log.d("URL", imagenUrl)
+fun ImagenDesdeUrl(imagen: String) {
+    val url = if (imagen.isNullOrBlank()) {
+        val randomSize = (1..1000).random()
+        "https://picsum.photos/$randomSize"
+
+    } else {
+        imagen
+    }
     AsyncImage(
-        model = imagenUrl,
-        contentDescription = "imagen",
-        error = painterResource(R.drawable.ic_launcher_background),
-       modifier = Modifier.fillMaxSize()
+        model = url,
+        contentDescription = "Mi imagen",
+        modifier = Modifier.fillMaxSize(),
+        onError = { state ->
+            Log.e("COIL", "Error al cargar imagen", state.result.throwable)
+        }
     )
 }
+
+
+
+
 
 
 

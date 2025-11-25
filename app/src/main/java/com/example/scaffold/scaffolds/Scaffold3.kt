@@ -1,5 +1,6 @@
 package com.example.scaffold.scaffolds
 
+import android.util.Log
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
@@ -26,10 +27,11 @@ import com.example.scaffold.CuerpoApp
 @Composable
 fun Scaffold3() {
     var color by remember { mutableStateOf(Color.Blue) }
+    var urlImage by remember { mutableStateOf("") }
 
     Scaffold(
         bottomBar = {
-            BottomBar3() {
+            BottomBar3(onImageChange = { urlImage = it }) {
                 color = it
             }
         })
@@ -38,7 +40,7 @@ fun Scaffold3() {
             modifier = Modifier.padding(paddingValues = contentPadding),
             color = color,
             texto = "Scaffold3",
-
+            urlImage = urlImage
 
 
         )
@@ -46,15 +48,20 @@ fun Scaffold3() {
 }
 
 @Composable
-fun BottomBar3(onColorChange: (Color) -> Unit) {
+fun BottomBar3(onImageChange: (String) -> Unit, onColorChange: (Color) -> Unit) {
     var index by rememberSaveable { mutableStateOf(1) }
-
+    val imagenes = listOf(
+        "https://picsum.photos/406",
+        "https://picsum.photos/401",
+        "https://picsum.photos/402"
+    )
     NavigationBar() {
         NavigationBarItem(
             selected = index == 1,
             onClick = {
                 index = 1
                 onColorChange(Color.Red)
+                onImageChange(imagenes[0])
             },
             icon = {
                 Icon(
@@ -69,6 +76,7 @@ fun BottomBar3(onColorChange: (Color) -> Unit) {
             onClick = {
                 index = 2
                 onColorChange(Color.Green)
+                onImageChange(imagenes[1])
             },
             icon = {
                 Icon(
@@ -83,6 +91,7 @@ fun BottomBar3(onColorChange: (Color) -> Unit) {
             onClick = {
                 index = 3
                 onColorChange(Color.Yellow)
+                onImageChange(imagenes[2])
 
             },
             icon = {
@@ -95,22 +104,7 @@ fun BottomBar3(onColorChange: (Color) -> Unit) {
         )
 
     }
-
-
 }
-
-
-@Composable
-fun ImagenDesdeUrl(imagen: String) {
-    AsyncImage(
-        model = imagen,
-        contentDescription = "Mi imagen",
-        modifier = Modifier.size(120.dp)
-    )
-}
-
-
-
 
 
 
