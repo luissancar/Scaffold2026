@@ -7,6 +7,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.material.icons.filled.Build
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material3.FabPosition
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -23,6 +24,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.scaffold.CuerpoApp
+import com.example.scaffold.MyFloatingActionButton
 
 @Composable
 fun Scaffold3() {
@@ -34,7 +36,15 @@ fun Scaffold3() {
             BottomBar3(onImageChange = { urlImage = it }) {
                 color = it
             }
-        })
+        },
+        floatingActionButton = {
+            MyFloatingActionButton() {
+                urlImage = it
+            }
+        },
+        floatingActionButtonPosition = FabPosition.End
+    )
+
     { contentPadding ->
         CuerpoApp(
             modifier = Modifier.padding(paddingValues = contentPadding),
